@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Farfor</string>
+
+    <string-array name="item_drawer">
+        <item>Каталог</item>
+        <item>Контакты</item>
+    </string-array>
+
+    <string-array name="option_item">
+        <item>Диаметр:</item>
+        <item>Вес:</item>
+        <item>Кол-во:</item>
+        <item>Каллорийность:</item>
+        <item>Белки:</item>
+        <item>Жиры:</item>
+        <item>Углеводы:</item>
+
+    </string-array>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="no_network">Нет подключения к интернету</string>
+    <string name="no_data">Нет данных для загрузки. Подключите интернет</string>
+    <string name="close_button">Закрыть</string>
+
+    <string name="contacts">Skype: ifarfor \n(347) 2-242-111 \n
++7 (927) 32-33-111</string>
+    <string name="adress">450071, г. Уфа, ул. Ростовская, 18</string>
+    <string name="nameContact"> Контакты</string>
+    <string name="nameAdress">Адрес</string>
+
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyB7xVJb2ncZUYogj6SXJfjIokbSDiC6yAE</string>
+    <string name="you_map">Вы тут</string>
+    <string name="restourant">Мы находимся тут</string>
+
+
+</resources>
