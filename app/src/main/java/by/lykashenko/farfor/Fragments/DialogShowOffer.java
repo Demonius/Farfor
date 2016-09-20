@@ -9,14 +9,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
-import by.lykashenko.farfor.Interfaces.ImageDownloader;
 import by.lykashenko.farfor.R;
 
 /**
  * Created by Дмитрий on 13.09.16.
+ * Диалог для отображения дополнительных сведений для товара
  */
 public class DialogShowOffer extends DialogFragment {
 
@@ -51,9 +52,7 @@ public class DialogShowOffer extends DialogFragment {
         buttonClose = (Button) viewDialog.findViewById(R.id.buttonCloseOffer);
         optionText = (TextView) viewDialog.findViewById(R.id.textOption);
 
-        ImageDownloader imageDownloader = new ImageDownloader();
-        imageDownloader.setMode(ImageDownloader.Mode.CORRECT);
-        imageDownloader.download(urlPicture, imageOffer);
+        Picasso.with(getContext()).load(urlPicture).into(imageOffer);
 
         String[] nameOption = getResources().getStringArray(R.array.option_item);
 
