@@ -3,7 +3,6 @@ package by.lykashenko.farfor.XmlConstructer;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;
 
 import java.util.List;

@@ -1,7 +1,6 @@
 package by.lykashenko.farfor.XmlConstructer;
 
 import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;
 import org.simpleframework.xml.Text;
 

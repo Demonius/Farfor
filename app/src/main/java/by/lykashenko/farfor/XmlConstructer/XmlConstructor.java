@@ -5,7 +5,7 @@ import org.simpleframework.xml.Path;
 import org.simpleframework.xml.Root;
 
 import java.util.List;
-import java.util.Map;
+
 
 /**
  * Created by Дмитрий on 09.09.16.
