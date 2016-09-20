@@ -18,19 +18,20 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
 
 import com.activeandroid.ActiveAndroid;
-import com.activeandroid.Cache;
 import com.activeandroid.query.Delete;
+import com.activeandroid.query.Select;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
+import by.lykashenko.farfor.Adapters.AdapterCatalog;
+import by.lykashenko.farfor.Adapters.AdapterOffer;
 import by.lykashenko.farfor.BD.Offers;
 import by.lykashenko.farfor.BD.Categories;
+import by.lykashenko.farfor.Fragments.DialogShowOffer;
 import by.lykashenko.farfor.Fragments.FragmentCatalog;
 import by.lykashenko.farfor.Fragments.FragmentContacts;
 import by.lykashenko.farfor.Fragments.FragmentOffer;
@@ -45,7 +46,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements FragmentCatalog.PressedCategory{
+public class MainActivity extends AppCompatActivity implements AdapterCatalog.PressedCategory, AdapterOffer.PressedOffers{
 
     private static final String LOG_TAG = "Farfor";
     public static final String TIME_UPDATE = "time_update";
@@ -136,7 +137,27 @@ public class MainActivity extends AppCompatActivity implements FragmentCatalog.P
 
     }
 
+    @Override
+    public void onPressedOffers(Integer indexOffers) {
+        List<Offers> offersList = new Select().from(Offers.class).where("idOffers = ?", indexOffers).execute();
 
+        DialogShowOffer dialogShowOffer = new DialogShowOffer();
+        dialogShowOffer.setNameOffer(offersList.get(0).name);
+        dialogShowOffer.setDescriptionOffer(offersList.get(0).description);
+        dialogShowOffer.setUrlPicture(offersList.get(0).picture);
+        dialogShowOffer.setCenaOffer(offersList.get(0).price);
+        List<String> option = new ArrayList<>();
+        option.add(offersList.get(0).diametr);
+        option.add(offersList.get(0).ves);
+        option.add(offersList.get(0).kolichestvo);
+        option.add(offersList.get(0).energy);
+        option.add(offersList.get(0).belki);
+        option.add(offersList.get(0).giru);
+        option.add(offersList.get(0).yglevodu);
+
+        dialogShowOffer.setOptionOffer(option);
+        dialogShowOffer.show(getSupportFragmentManager(),"offer");
+    }
 
 
     // обработчик нажатий на боковой панели
