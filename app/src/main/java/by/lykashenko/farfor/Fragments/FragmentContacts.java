@@ -40,28 +40,28 @@ public class FragmentContacts extends android.support.v4.app.Fragment {
         Linkify.addLinks(contact, Linkify.ALL);
         Linkify.addLinks(adress, Linkify.ALL);
 
-        MapsInitializer.initialize(getActivity());
+
         try {
             mapView = (MapView) view.findViewById(R.id.mapFragment2);
 
             mapView.onCreate(savedInstanceState);
+
             mapView.getMapAsync(new OnMapReadyCallback() {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
                     map = googleMap;
-                    map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                    map.getUiSettings().setZoomControlsEnabled(true);
-                    LatLng location = new LatLng(15.00000, 27.00000);
-                    LatLng location2 = new LatLng(15.05000, 27.05000);
+
+                    LatLng location = new LatLng(51.00000, 27.00000);
+                    LatLng location2 = new LatLng(51.05000, 27.05000);
                     map.addMarker(new MarkerOptions().position(location).title(getResources().getString(R.string.you_map)));
                     map.addMarker(new MarkerOptions().position(location2).title(getResources().getString(R.string.restourant)));
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 10));
+                    MapsInitializer.initialize(getContext());
+
+
                 }
 
-                public void onCreate(Bundle savedInstanceState) {
-                    FragmentContacts.super.onCreate(savedInstanceState);
-                    mapView.onCreate(savedInstanceState);
-                }
+
             });
         } catch (InflateException e) {
             Log.d("Contact", "Ошибка mapView = " + e);
